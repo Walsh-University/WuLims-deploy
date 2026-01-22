@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wulims
+  namespace: wulims
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - lims.lab.programminggoody.com
+      secretName: lab-wildcard-tls
+  rules:
+    - host: lims.lab.programminggoody.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: wulims
+                port:
+                  number: 80

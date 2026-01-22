@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wulims
+  namespace: wulims
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wulims
+  template:
+    metadata:
+      labels:
+        app: wulims
+    spec:
+      imagePullSecrets:
+        - name: ghcr-pull
+      containers:
+        - name: wulims
+          image: ghcr.io/walsh-university/wulims:main
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: wulims-secrets
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 10

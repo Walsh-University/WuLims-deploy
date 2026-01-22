@@ -1,0 +1,5 @@
+key.txt
+tree.txt
+**/**/wulims-secrets.yaml
+/k8s/overlays/lab/secrets/wulims-db-app.yaml
+/k8s/overlays/lab/secrets/wulims-db-superuser.yaml

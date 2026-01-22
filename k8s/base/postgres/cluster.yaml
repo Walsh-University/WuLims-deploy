@@ -1,0 +1,22 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: wulims-pg
+  namespace: wulims
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
+spec:
+  instances: 1
+
+  storage:
+    size: 10Gi
+
+  bootstrap:
+    initdb:
+      database: wulims
+      owner: wulims
+      secret:
+        name: wulims-db-app
+
+  superuserSecret:
+    name: wulims-db-superuser

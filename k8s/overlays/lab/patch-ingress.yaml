@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wulims
+  namespace: wulims
+spec:
+  tls:
+    - hosts:
+        - lims.lab.programminggoody.com
+      secretName: lab-wildcard-tls
+  rules:
+    - host: lims.lab.programminggoody.com

@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wulims
+  namespace: wulims
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: wulims
+          # Optional: if you want to use overlay to control tag without kustomize images:
+          # image: ghcr.io/walsh-university/wulims:main
+          env:
+            - name: DJANGO_DEBUG
+              value: "0"
