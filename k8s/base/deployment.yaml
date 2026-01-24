@@ -46,16 +46,14 @@ spec:
             - secretRef:
                 name: wulims-secrets
           readinessProbe:
-            httpGet:
-              path: /healthz/
+            tcpSocket:
               port: 8000
             initialDelaySeconds: 10
             periodSeconds: 5
             timeoutSeconds: 2
             failureThreshold: 6
           livenessProbe:
-            httpGet:
-              path: /healthz/
+            tcpSocket:
               port: 8000
             initialDelaySeconds: 30
             periodSeconds: 10
