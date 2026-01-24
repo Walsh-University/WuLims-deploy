@@ -22,8 +22,24 @@ spec:
           ports:
             - containerPort: 8000
           env:
-            - name: DJANGO_SETTINGS_MODULE
-              value: config.settings.prod
+          - name: DJANGO_SETTINGS_MODULE
+            value: config.settings.prod
+          - name: DB_NAME
+            value: wulims
+          - name: DB_HOST
+            value: wulims-pg-rw.wulims.svc.cluster.local
+          - name: DB_PORT
+            value: "5432"
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: wulims-db-app
+                key: username
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: wulims-db-app
+                key: password
           envFrom:
             - configMapRef:
                 name: wulims-config
