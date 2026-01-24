@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wulims-config
+  namespace: wulims
+data:
+  DJANGO_SETTINGS_MODULE: "config.settings.prod"
+  DJANGO_DEBUG: "0"
+  DJANGO_ALLOWED_HOSTS: "lims-lab.programminggoody.com"
+  DJANGO_PUBLIC_URL: "https://lims-lab.programminggoody.com"
+  DJANGO_CSRF_TRUSTED_ORIGINS: "https://lims-lab.programminggoody.com"
