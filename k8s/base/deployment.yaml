@@ -51,7 +51,7 @@ spec:
               port: 8000
               httpHeaders:
                 - name: Host
-                  value: localhost
+                  value: wulims
             initialDelaySeconds: 10
             periodSeconds: 5
             timeoutSeconds: 2
@@ -62,7 +62,7 @@ spec:
               port: 8000
               httpHeaders:
                 - name: Host
-                  value: localhost
+                  value: wulims
             initialDelaySeconds: 30
             periodSeconds: 10
             timeoutSeconds: 2
