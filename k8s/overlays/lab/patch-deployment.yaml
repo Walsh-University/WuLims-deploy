@@ -14,3 +14,5 @@ spec:
           env:
             - name: DJANGO_DEBUG
               value: "0"
+            - CSRF_TRUSTED_ORIGINS = "https://lims.lab.programminggoody.com"
+
