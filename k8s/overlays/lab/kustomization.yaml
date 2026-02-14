@@ -9,4 +9,4 @@ generators:
 
 patches:
 - path: patch-deployment.yaml
-
+- path: image-patch.yaml
