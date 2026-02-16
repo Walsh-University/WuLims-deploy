@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
         - name: wulims
-          image: ghcr.io/walsh-university/wulims@sha256:3fcc02300bd4920bf844cbbc9dff094010fd87c3231eb0f27d0a40759c8633d7
+          image: ghcr.io/walsh-university/wulims@sha256:40f39787517a719fa51958b9599186261204b465f210c803c9f91297bc0155cf
